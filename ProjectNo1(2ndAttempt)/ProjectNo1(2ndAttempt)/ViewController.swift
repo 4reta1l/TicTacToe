@@ -46,8 +46,33 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         label.text = "Cross"
+        newGame(action: nil)
     }
 
+    func newGame(action: UIAlertAction!) {
+        arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        label.text = "Cross"
+        Image1.image = nil
+        Image2.image = nil
+        Image3.image = nil
+        Image4.image = nil
+        Image5.image = nil
+        Image6.image = nil
+        Image7.image = nil
+        Image8.image = nil
+        Image9.image = nil
+        Button1.isEnabled = true
+        Button2.isEnabled = true
+        Button3.isEnabled = true
+        Button4.isEnabled = true
+        Button5.isEnabled = true
+        Button6.isEnabled = true
+        Button7.isEnabled = true
+        Button8.isEnabled = true
+        Button9.isEnabled = true
+    }
+    
     @IBAction func Button1Clicked(_ sender: Any) {
         if label.text == "Circle" {
             Image1.image = UIImage(named: "circle")
@@ -67,19 +92,24 @@ class ViewController: UIViewController {
                     break
                 }
             }
-            if checkIn == false {
-                for number in combination {
-                    if arrayForCrosses.contains(number) {
-                        checkIn = true
-            } else {
-                        checkIn = false
-                        break
-                    }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
                 }
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -108,7 +138,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -135,7 +180,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -162,7 +222,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -189,7 +264,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -216,7 +306,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -243,7 +348,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -270,7 +390,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
@@ -298,7 +433,22 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                present(ac, animated: true)
+            }
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCrosses.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
                 present(ac, animated: true)
             }
         }
