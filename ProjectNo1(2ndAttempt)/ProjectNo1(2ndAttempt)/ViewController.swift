@@ -28,9 +28,19 @@ class ViewController: UIViewController {
     @IBOutlet var Button7: UIButton!
     @IBOutlet var Button8: UIButton!
     @IBOutlet var Button9: UIButton!
+    @IBOutlet var board: UIImageView!
     
-    
-    
+    var arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    var winCombinations = [[1, 2, 3],
+                           [1, 4, 7],
+                           [2, 5, 8],
+                           [3, 6, 9],
+                           [4, 5, 6],
+                           [7, 8, 9],
+                           [1, 5, 9],
+                           [3, 5, 7]]
+    var checkIn = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +52,65 @@ class ViewController: UIViewController {
         if label.text == "Circle" {
             Image1.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image1.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == false {
+                for number in combination {
+                    if arrayForCrosses.contains(number) {
+                        checkIn = true
+            } else {
+                        checkIn = false
+                        break
+                    }
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button1.isEnabled = false
+    
     }
     
     @IBAction func Button2Clicked(_ sender: Any) {
         if label.text == "Circle" {
             Image2.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image2.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button2.isEnabled = false
     }
@@ -63,9 +118,26 @@ class ViewController: UIViewController {
         if label.text == "Circle" {
             Image3.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image3.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button3.isEnabled = false
     }
@@ -73,9 +145,26 @@ class ViewController: UIViewController {
         if label.text == "Circle" {
             Image4.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image4.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button4.isEnabled = false
     }
@@ -83,9 +172,26 @@ class ViewController: UIViewController {
         if label.text == "Circle" {
             Image5.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image5.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button5.isEnabled = false
     }
@@ -93,9 +199,26 @@ class ViewController: UIViewController {
         if label.text == "Circle" {
             Image6.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image6.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button6.isEnabled = false
     }
@@ -103,9 +226,26 @@ class ViewController: UIViewController {
         if label.text == "Circle" {
             Image7.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image7.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button7.isEnabled = false
     }
@@ -113,21 +253,57 @@ class ViewController: UIViewController {
         if label.text == "Circle" {
             Image8.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image8.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button8.isEnabled = false
+        
     }
     @IBAction func Button9Clicked(_ sender: Any) {
         if label.text == "Circle" {
             Image9.image = UIImage(named: "circle")
             label.text = "Cross"
+            arrayForCircles[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
         } else {
             Image9.image = UIImage(named: "cross")
             label.text = "Circle"
+            arrayForCrosses[(sender as AnyObject).tag - 1] = (sender as AnyObject).tag
+        }
+        for combination in winCombinations {
+            for number in combination {
+                if arrayForCircles.contains(number) {
+                    checkIn = true
+                } else {
+                    checkIn = false
+                    break
+                }
+            }
+            if checkIn == true {
+                let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default))
+                present(ac, animated: true)
+            }
         }
         Button9.isEnabled = false
     }
+    
 }
 
