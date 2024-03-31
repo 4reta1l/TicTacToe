@@ -72,6 +72,7 @@ class ViewController: UIViewController {
         Button7.isEnabled = true
         Button8.isEnabled = true
         Button9.isEnabled = true
+        count = 0
     }
     
     func changeImage(_ image: UIImageView, number: Int) {
