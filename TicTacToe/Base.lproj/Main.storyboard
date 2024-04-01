@@ -46,7 +46,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="1"/>
                                 <connections>
-                                    <action selector="Button1Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aM2-5t-LFw"/>
+                                    <action selector="button1Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tDr-9w-RxZ"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHq-eT-c3n">
@@ -75,7 +75,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="2"/>
                                 <connections>
-                                    <action selector="Button2Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eZv-X8-75o"/>
+                                    <action selector="button2Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eaE-fR-mL1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdP-rz-kyG">
@@ -84,7 +84,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="3"/>
                                 <connections>
-                                    <action selector="Button3Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mJ8-dZ-gaa"/>
+                                    <action selector="button3Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F6r-gE-vzN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NN4-za-qGI">
@@ -93,7 +93,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="4"/>
                                 <connections>
-                                    <action selector="Button4Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LS4-Vv-NsC"/>
+                                    <action selector="button4Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fge-8C-fmM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqJ-g8-9zQ">
@@ -102,7 +102,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="5"/>
                                 <connections>
-                                    <action selector="Button5Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YKO-Og-Pu2"/>
+                                    <action selector="button5Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mfc-J4-Vc3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3n8-hS-tej">
@@ -111,7 +111,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="6"/>
                                 <connections>
-                                    <action selector="Button6Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7lw-Wx-IKJ"/>
+                                    <action selector="button6Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MhD-DC-fmP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0B-jb-o05">
@@ -120,7 +120,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="7"/>
                                 <connections>
-                                    <action selector="Button7Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DeH-m0-fh3"/>
+                                    <action selector="button7Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enH-ei-7kY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPG-xA-Elb">
@@ -129,7 +129,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="8"/>
                                 <connections>
-                                    <action selector="Button8Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="etO-ir-dEo"/>
+                                    <action selector="button8Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HcI-bw-JOw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpd-3a-WRH">
@@ -138,7 +138,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="9"/>
                                 <connections>
-                                    <action selector="Button9Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W6A-WR-Ghg"/>
+                                    <action selector="button9Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="08f-gN-sf5"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LR7-5B-4eV">
@@ -157,25 +157,25 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="Button1" destination="3Zd-Mh-W2l" id="lu6-zw-87S"/>
-                        <outlet property="Button2" destination="0Zz-tF-2on" id="HCR-zx-jlM"/>
-                        <outlet property="Button3" destination="TdP-rz-kyG" id="Ttg-H9-sCE"/>
-                        <outlet property="Button4" destination="NN4-za-qGI" id="DZP-pZ-PhE"/>
-                        <outlet property="Button5" destination="lqJ-g8-9zQ" id="gT3-fc-Djj"/>
-                        <outlet property="Button6" destination="3n8-hS-tej" id="Rxb-uh-dam"/>
-                        <outlet property="Button7" destination="r0B-jb-o05" id="CGg-Pb-Vf3"/>
-                        <outlet property="Button8" destination="GPG-xA-Elb" id="YZQ-eK-GaR"/>
-                        <outlet property="Button9" destination="fpd-3a-WRH" id="ziE-Ye-48j"/>
-                        <outlet property="Image1" destination="yQf-Ur-Eo7" id="eRO-LV-S4e"/>
-                        <outlet property="Image2" destination="LR7-5B-4eV" id="xC8-PO-kxT"/>
-                        <outlet property="Image3" destination="CNU-va-uG7" id="dPD-VA-08b"/>
-                        <outlet property="Image4" destination="5h9-Pp-ihM" id="krx-UP-Uda"/>
-                        <outlet property="Image5" destination="pHq-eT-c3n" id="uKg-Hh-olI"/>
-                        <outlet property="Image6" destination="qfv-bx-hc2" id="l7p-O9-hbc"/>
-                        <outlet property="Image7" destination="eYU-3m-eL0" id="y2j-0r-Xb1"/>
-                        <outlet property="Image8" destination="fK3-dU-rnb" id="8Bb-LR-jpe"/>
-                        <outlet property="Image9" destination="Imc-Dv-65D" id="HpW-W7-NCE"/>
                         <outlet property="board" destination="Piz-Ug-BK7" id="mHy-kR-s3v"/>
+                        <outlet property="button1" destination="3Zd-Mh-W2l" id="Ra8-eq-Kha"/>
+                        <outlet property="button2" destination="0Zz-tF-2on" id="32t-kT-Xi2"/>
+                        <outlet property="button3" destination="TdP-rz-kyG" id="7MV-fU-GL6"/>
+                        <outlet property="button4" destination="NN4-za-qGI" id="qx8-O0-Tes"/>
+                        <outlet property="button5" destination="lqJ-g8-9zQ" id="3kC-g5-ifX"/>
+                        <outlet property="button6" destination="3n8-hS-tej" id="0Zt-wy-ChW"/>
+                        <outlet property="button7" destination="r0B-jb-o05" id="6uw-u8-HhU"/>
+                        <outlet property="button8" destination="GPG-xA-Elb" id="tRl-tE-Pwi"/>
+                        <outlet property="button9" destination="fpd-3a-WRH" id="pKH-pV-OJR"/>
+                        <outlet property="image1" destination="yQf-Ur-Eo7" id="djU-0i-sRS"/>
+                        <outlet property="image2" destination="LR7-5B-4eV" id="SzI-CO-fi4"/>
+                        <outlet property="image3" destination="CNU-va-uG7" id="FBK-tA-uEp"/>
+                        <outlet property="image4" destination="5h9-Pp-ihM" id="KLE-sK-pVT"/>
+                        <outlet property="image5" destination="pHq-eT-c3n" id="AWw-RC-6fK"/>
+                        <outlet property="image6" destination="qfv-bx-hc2" id="Nvj-lc-8F3"/>
+                        <outlet property="image7" destination="eYU-3m-eL0" id="98d-JU-Oit"/>
+                        <outlet property="image8" destination="fK3-dU-rnb" id="D1J-oF-GO4"/>
+                        <outlet property="image9" destination="Imc-Dv-65D" id="F6m-si-x2Z"/>
                         <outlet property="label" destination="QXj-2T-B8P" id="G4a-2P-xSj"/>
                     </connections>
                 </viewController>

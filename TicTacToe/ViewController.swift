@@ -10,24 +10,24 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var label: UILabel!
-    @IBOutlet var Image1: UIImageView!
-    @IBOutlet var Image2: UIImageView!
-    @IBOutlet var Image3: UIImageView!
-    @IBOutlet var Image4: UIImageView!
-    @IBOutlet var Image5: UIImageView!
-    @IBOutlet var Image6: UIImageView!
-    @IBOutlet var Image7: UIImageView!
-    @IBOutlet var Image8: UIImageView!
-    @IBOutlet var Image9: UIImageView!
-    @IBOutlet var Button1: UIButton!
-    @IBOutlet var Button2: UIButton!
-    @IBOutlet var Button3: UIButton!
-    @IBOutlet var Button4: UIButton!
-    @IBOutlet var Button5: UIButton!
-    @IBOutlet var Button6: UIButton!
-    @IBOutlet var Button7: UIButton!
-    @IBOutlet var Button8: UIButton!
-    @IBOutlet var Button9: UIButton!
+    @IBOutlet var image1: UIImageView!
+    @IBOutlet var image2: UIImageView!
+    @IBOutlet var image3: UIImageView!
+    @IBOutlet var image4: UIImageView!
+    @IBOutlet var image5: UIImageView!
+    @IBOutlet var image6: UIImageView!
+    @IBOutlet var image7: UIImageView!
+    @IBOutlet var image8: UIImageView!
+    @IBOutlet var image9: UIImageView!
+    @IBOutlet var button1: UIButton!
+    @IBOutlet var button2: UIButton!
+    @IBOutlet var button3: UIButton!
+    @IBOutlet var button4: UIButton!
+    @IBOutlet var button5: UIButton!
+    @IBOutlet var button6: UIButton!
+    @IBOutlet var button7: UIButton!
+    @IBOutlet var button8: UIButton!
+    @IBOutlet var button9: UIButton!
     @IBOutlet var board: UIImageView!
     
     var arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -54,24 +54,24 @@ class ViewController: UIViewController {
         arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         label.text = "Cross"
-        Image1.image = nil
-        Image2.image = nil
-        Image3.image = nil
-        Image4.image = nil
-        Image5.image = nil
-        Image6.image = nil
-        Image7.image = nil
-        Image8.image = nil
-        Image9.image = nil
-        Button1.isEnabled = true
-        Button2.isEnabled = true
-        Button3.isEnabled = true
-        Button4.isEnabled = true
-        Button5.isEnabled = true
-        Button6.isEnabled = true
-        Button7.isEnabled = true
-        Button8.isEnabled = true
-        Button9.isEnabled = true
+        image1.image = nil
+        image2.image = nil
+        image3.image = nil
+        image4.image = nil
+        image5.image = nil
+        image6.image = nil
+        image7.image = nil
+        image8.image = nil
+        image9.image = nil
+        button1.isEnabled = true
+        button2.isEnabled = true
+        button3.isEnabled = true
+        button4.isEnabled = true
+        button5.isEnabled = true
+        button6.isEnabled = true
+        button7.isEnabled = true
+        button8.isEnabled = true
+        button9.isEnabled = true
         count = 0
     }
     
@@ -114,70 +114,70 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func Button1Clicked(_ sender: Any) {
-        changeImage(Image1, number: 1)
+    @IBAction func button1Clicked(_ sender: Any) {
+        changeImage(image1, number: 1)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button1.isEnabled = false
+        button1.isEnabled = false
         checkIfDraw()
     
     }
     
-    @IBAction func Button2Clicked(_ sender: Any) {
-        changeImage(Image2, number: 2)
+    @IBAction func button2Clicked(_ sender: Any) {
+        changeImage(image2, number: 2)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button2.isEnabled = false
+        button2.isEnabled = false
         checkIfDraw()
     }
-    @IBAction func Button3Clicked(_ sender: Any) {
-        changeImage(Image3, number: 3)
+    @IBAction func button3Clicked(_ sender: Any) {
+        changeImage(image3, number: 3)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button3.isEnabled = false
+        button3.isEnabled = false
         checkIfDraw()
     }
-    @IBAction func Button4Clicked(_ sender: Any) {
-        changeImage(Image4, number: 4)
+    @IBAction func button4Clicked(_ sender: Any) {
+        changeImage(image4, number: 4)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button4.isEnabled = false
+        button4.isEnabled = false
         checkIfDraw()
     }
-    @IBAction func Button5Clicked(_ sender: Any) {
-        changeImage(Image5, number: 5)
+    @IBAction func button5Clicked(_ sender: Any) {
+        changeImage(image5, number: 5)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button5.isEnabled = false
+        button5.isEnabled = false
         checkIfDraw()
     }
-    @IBAction func Button6Clicked(_ sender: Any) {
-        changeImage(Image6, number: 6)
+    @IBAction func button6Clicked(_ sender: Any) {
+        changeImage(image6, number: 6)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button6.isEnabled = false
+        button6.isEnabled = false
         checkIfDraw()
     }
-    @IBAction func Button7Clicked(_ sender: Any) {
-        changeImage(Image7, number: 7)
+    @IBAction func button7Clicked(_ sender: Any) {
+        changeImage(image7, number: 7)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button7.isEnabled = false
+        button7.isEnabled = false
         checkIfDraw()
     }
-    @IBAction func Button8Clicked(_ sender: Any) {
-        changeImage(Image8, number: 8)
+    @IBAction func button8Clicked(_ sender: Any) {
+        changeImage(image8, number: 8)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button8.isEnabled = false
+        button8.isEnabled = false
         checkIfDraw()
         
     }
-    @IBAction func Button9Clicked(_ sender: Any) {
-        changeImage(Image9, number: 9)
+    @IBAction func button9Clicked(_ sender: Any) {
+        changeImage(image9, number: 9)
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        Button9.isEnabled = false
+        button9.isEnabled = false
         checkIfDraw()
     }
     
