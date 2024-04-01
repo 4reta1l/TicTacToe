@@ -114,71 +114,59 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func button1Clicked(_ sender: Any) {
-        changeImage(image1, number: 1)
+    func checkGameOver() {
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        button1.isEnabled = false
         checkIfDraw()
+    }
+    
+    @IBAction func button1Clicked(_ sender: Any) {
+        changeImage(image1, number: 1)
+        checkGameOver()
+        button1.isEnabled = false
     
     }
     
     @IBAction func button2Clicked(_ sender: Any) {
         changeImage(image2, number: 2)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button2.isEnabled = false
-        checkIfDraw()
     }
     @IBAction func button3Clicked(_ sender: Any) {
         changeImage(image3, number: 3)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button3.isEnabled = false
-        checkIfDraw()
     }
     @IBAction func button4Clicked(_ sender: Any) {
         changeImage(image4, number: 4)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button4.isEnabled = false
-        checkIfDraw()
     }
     @IBAction func button5Clicked(_ sender: Any) {
         changeImage(image5, number: 5)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button5.isEnabled = false
-        checkIfDraw()
     }
     @IBAction func button6Clicked(_ sender: Any) {
         changeImage(image6, number: 6)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button6.isEnabled = false
-        checkIfDraw()
     }
     @IBAction func button7Clicked(_ sender: Any) {
         changeImage(image7, number: 7)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button7.isEnabled = false
-        checkIfDraw()
     }
     @IBAction func button8Clicked(_ sender: Any) {
         changeImage(image8, number: 8)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button8.isEnabled = false
-        checkIfDraw()
         
     }
     @IBAction func button9Clicked(_ sender: Any) {
         changeImage(image9, number: 9)
-        checkIfWon(arrayForCircles)
-        checkIfWon(arrayForCrosses)
+        checkGameOver()
         button9.isEnabled = false
-        checkIfDraw()
     }
     
 }
