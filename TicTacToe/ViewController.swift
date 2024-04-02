@@ -90,15 +90,7 @@ class ViewController: UIViewController {
     
     func checkIfWon(_ array: Array<Int>) {
         for combination in winCombinations {
-            for number in combination {
-                if array.contains(number) {
-                    checkIn = true
-                } else {
-                    checkIn = false
-                    break
-                }
-            }
-            if checkIn == true {
+            if combination.allSatisfy({ array.contains($0) }) {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
                 let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
                 ac.addAction(playAgainAction)
