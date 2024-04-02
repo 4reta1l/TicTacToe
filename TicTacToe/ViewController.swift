@@ -47,10 +47,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        newGame(action: nil)
+        newGame()
     }
 
-    func newGame(action: UIAlertAction!) {
+    func newGame() {
         arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         label.text = "Cross"
@@ -100,7 +100,8 @@ class ViewController: UIViewController {
             }
             if checkIn == true {
                 let ac = UIAlertController(title: "Game over", message: "\((label.text)!) lost", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+                let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
+                ac.addAction(playAgainAction)
                 present(ac, animated: true)
             }
         }
@@ -109,7 +110,8 @@ class ViewController: UIViewController {
     func checkIfDraw() {
         if count == 9 && checkIn == false {
             let ac = UIAlertController(title: "Game over", message: "Draw", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Wanna play once more?", style: .default, handler: newGame))
+            let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
+            ac.addAction(playAgainAction)
             present(ac, animated: true)
         }
     }
