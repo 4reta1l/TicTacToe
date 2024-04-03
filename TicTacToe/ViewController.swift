@@ -40,14 +40,14 @@ class ViewController: UIViewController {
                            [7, 8, 9],
                            [1, 5, 9],
                            [3, 5, 7]]
-    var checkIn = false
     var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        
         newGame()
+        
     }
 
     func newGame() {
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
     }
     
     func checkIfDraw() {
-        if count == 9 && checkIn == false {
+        if count == 9 {
             let ac = UIAlertController(title: "Game over", message: "Draw", preferredStyle: .alert)
             let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
             ac.addAction(playAgainAction)
