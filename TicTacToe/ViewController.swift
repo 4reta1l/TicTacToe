@@ -35,14 +35,6 @@ class ViewController: UIViewController {
         case cross
     }
     
-    func imagee(for picture: picture) -> UIImage? {
-        switch picture {
-        case .circle:
-            return UIImage(named: "circle")
-        case .cross:
-            return UIImage(named: "cross")
-        }
-    }
     
     var arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -89,14 +81,23 @@ class ViewController: UIViewController {
         count = 0
     }
     
+    func assets(for picture: picture) -> UIImage? {
+        switch picture {
+        case .circle:
+            return UIImage(named: "circle")
+        case .cross:
+            return UIImage(named: "cross")
+        }
+    }
+    
     func changeImage(_ image: UIImageView, number: Int) {
         if label.text == "Circle" {
-            image.image = imagee(for: .circle)
+            image.image = assets(for: .circle)
             
             label.text = "Cross"
             arrayForCircles[number - 1] = number
         } else {
-            image.image = imagee(for: .cross)
+            image.image = assets(for: .cross)
             label.text = "Circle"
             arrayForCrosses[number - 1] = number
         }
