@@ -30,6 +30,20 @@ class ViewController: UIViewController {
     @IBOutlet var button9: UIButton!
     @IBOutlet var board: UIImageView!
     
+    enum picture {
+        case circle
+        case cross
+    }
+    
+    func imagee(for picture: picture) -> UIImage? {
+        switch picture {
+        case .circle:
+            return UIImage(named: "circle")
+        case .cross:
+            return UIImage(named: "cross")
+        }
+    }
+    
     var arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var winCombinations = [[1, 2, 3],
@@ -77,11 +91,12 @@ class ViewController: UIViewController {
     
     func changeImage(_ image: UIImageView, number: Int) {
         if label.text == "Circle" {
-            image.image = UIImage(named: "circle")
+            image.image = imagee(for: .circle)
+            
             label.text = "Cross"
             arrayForCircles[number - 1] = number
         } else {
-            image.image = UIImage(named: "cross")
+            image.image = imagee(for: .cross)
             label.text = "Circle"
             arrayForCrosses[number - 1] = number
         }
