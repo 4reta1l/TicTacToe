@@ -92,12 +92,11 @@ class ViewController: UIViewController {
     
     func changeImage(_ image: UIImageView, number: Int) {
         if label.text == "Circle" {
-            image.image = assets(for: .circle)
-            
+            image.image = .circle
             label.text = "Cross"
             arrayForCircles[number - 1] = number
         } else {
-            image.image = assets(for: .cross)
+            image.image = .cross
             label.text = "Circle"
             arrayForCrosses[number - 1] = number
         }
