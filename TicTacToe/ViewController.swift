@@ -8,32 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet var label: UILabel!
-    @IBOutlet var image1: UIImageView!
-    @IBOutlet var image2: UIImageView!
-    @IBOutlet var image3: UIImageView!
-    @IBOutlet var image4: UIImageView!
-    @IBOutlet var image5: UIImageView!
-    @IBOutlet var image6: UIImageView!
-    @IBOutlet var image7: UIImageView!
-    @IBOutlet var image8: UIImageView!
-    @IBOutlet var image9: UIImageView!
-    @IBOutlet var button1: UIButton!
-    @IBOutlet var button2: UIButton!
-    @IBOutlet var button3: UIButton!
-    @IBOutlet var button4: UIButton!
-    @IBOutlet var button5: UIButton!
-    @IBOutlet var button6: UIButton!
-    @IBOutlet var button7: UIButton!
-    @IBOutlet var button8: UIButton!
-    @IBOutlet var button9: UIButton!
-    @IBOutlet var board: UIImageView!
     
-    enum picture {
-        case circle
-        case cross
-    }
+    @IBOutlet var label: UILabel!
+   
+    
+    
+    
+    var checkIfTapped = false
     
     
     var arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -47,56 +28,105 @@ class ViewController: UIViewController {
                            [1, 5, 9],
                            [3, 5, 7]]
     var count = 0
+    let board = UIImageView()
+    let button10 = UIButton()
+    let button20 = UIButton()
+    let button30 = UIButton()
+    let button40 = UIButton()
+    let button50 = UIButton()
+    let button60 = UIButton()
+    let button70 = UIButton()
+    let button80 = UIButton()
+    let button90 = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        board.image = .boardForTTT
+        board.frame = CGRect(x: 0, y: 200, width: 400, height: 350)
         
+        view.addSubview(board)
+        // Do any additional setup after loading the view.
         newGame()
         
-    }
+        
+        
+        view.addSubview(button10)
+        button10.frame = CGRect(x: 60, y: 225, width: 80, height: 80)
+        button10.addTarget(self, action: #selector(button10Tapped), for: .touchUpInside)
+        
+        
+        view.addSubview(button20)
+        button20.frame = CGRect(x: 160, y: 225, width: 80, height: 80)
+        button20.addTarget(self, action: #selector(button20Tapped), for: .touchUpInside)
+        
+        view.addSubview(button30)
+        button30.frame = CGRect(x: 260, y: 225, width: 80, height: 80)
+        button30.addTarget(self, action: #selector(button30Tapped), for: .touchUpInside)
+        
+        view.addSubview(button40)
+        button40.frame = CGRect(x: 60, y: 335, width: 80, height: 80)
+        button40.addTarget(self, action: #selector(button40Tapped), for: .touchUpInside)
+        
 
+        view.addSubview(button50)
+        button50.frame = CGRect(x: 160, y: 335, width: 80, height: 80)
+        button50.addTarget(self, action: #selector(button50Tapped), for: .touchUpInside)
+        
+    
+        view.addSubview(button60)
+        button60.frame = CGRect(x: 260, y: 335, width: 80, height: 80)
+        button60.addTarget(self, action: #selector(button60Tapped), for: .touchUpInside)
+        
+        view.addSubview(button70)
+        button70.frame = CGRect(x: 60, y: 445, width: 80, height: 80)
+        button70.addTarget(self, action: #selector(button70Tapped), for: .touchUpInside)
+        
+        
+        view.addSubview(button80)
+        button80.frame = CGRect(x: 160, y: 445, width: 80, height: 80)
+        button80.addTarget(self, action: #selector(button80Tapped), for: .touchUpInside)
+        
+    
+        view.addSubview(button90)
+        button90.frame = CGRect(x: 260, y: 445, width: 80, height: 80)
+        button90.addTarget(self, action: #selector(button90Tapped), for: .touchUpInside)
+    }
+    
     func newGame() {
         arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         label.text = "Cross"
-        image1.image = nil
-        image2.image = nil
-        image3.image = nil
-        image4.image = nil
-        image5.image = nil
-        image6.image = nil
-        image7.image = nil
-        image8.image = nil
-        image9.image = nil
-        button1.isEnabled = true
-        button2.isEnabled = true
-        button3.isEnabled = true
-        button4.isEnabled = true
-        button5.isEnabled = true
-        button6.isEnabled = true
-        button7.isEnabled = true
-        button8.isEnabled = true
-        button9.isEnabled = true
+        button10.setImage(.none, for: .normal)
+        button20.setImage(.none, for: .normal)
+        button30.setImage(.none, for: .normal)
+        button40.setImage(.none, for: .normal)
+        button50.setImage(.none, for: .normal)
+        button60.setImage(.none, for: .normal)
+        button70.setImage(.none, for: .normal)
+        button80.setImage(.none, for: .normal)
+        button90.setImage(.none, for: .normal)
+        
+        button10.isEnabled = true
+        button20.isEnabled = true
+        button30.isEnabled = true
+        button40.isEnabled = true
+        button50.isEnabled = true
+        button60.isEnabled = true
+        button70.isEnabled = true
+        button80.isEnabled = true
+        button90.isEnabled = true
+        
         count = 0
     }
     
-    func assets(for picture: picture) -> UIImage? {
-        switch picture {
-        case .circle:
-            return UIImage(named: "circle")
-        case .cross:
-            return UIImage(named: "cross")
-        }
-    }
     
-    func changeImage(_ image: UIImageView, number: Int) {
+    func changeImage(_ button: UIButton, number: Int) {
         if label.text == "Circle" {
-            image.image = .circle
+            button.setImage(.circle, for: .normal)
             label.text = "Cross"
             arrayForCircles[number - 1] = number
         } else {
-            image.image = .cross
+            button.setImage(.cross, for: .normal)
             label.text = "Circle"
             arrayForCrosses[number - 1] = number
         }
@@ -129,54 +159,60 @@ class ViewController: UIViewController {
         checkIfDraw()
     }
     
-    @IBAction func button1Clicked(_ sender: Any) {
-        changeImage(image1, number: 1)
-        checkGameOver()
-        button1.isEnabled = false
-    
-    }
-    
-    @IBAction func button2Clicked(_ sender: Any) {
-        changeImage(image2, number: 2)
-        checkGameOver()
-        button2.isEnabled = false
-    }
-    @IBAction func button3Clicked(_ sender: Any) {
-        changeImage(image3, number: 3)
-        checkGameOver()
-        button3.isEnabled = false
-    }
-    @IBAction func button4Clicked(_ sender: Any) {
-        changeImage(image4, number: 4)
-        checkGameOver()
-        button4.isEnabled = false
-    }
-    @IBAction func button5Clicked(_ sender: Any) {
-        changeImage(image5, number: 5)
-        checkGameOver()
-        button5.isEnabled = false
-    }
-    @IBAction func button6Clicked(_ sender: Any) {
-        changeImage(image6, number: 6)
-        checkGameOver()
-        button6.isEnabled = false
-    }
-    @IBAction func button7Clicked(_ sender: Any) {
-        changeImage(image7, number: 7)
-        checkGameOver()
-        button7.isEnabled = false
-    }
-    @IBAction func button8Clicked(_ sender: Any) {
-        changeImage(image8, number: 8)
-        checkGameOver()
-        button8.isEnabled = false
+    @objc func button10Tapped(sender: UIButton!) {
         
-    }
-    @IBAction func button9Clicked(_ sender: Any) {
-        changeImage(image9, number: 9)
+        changeImage(button10, number: 1)
+        
         checkGameOver()
-        button9.isEnabled = false
+        button10.isEnabled = false
     }
+    @objc func button20Tapped(sender: UIButton!) {
+        changeImage(button20, number: 2)
+        checkGameOver()
+        button20.isEnabled = false
+    }
+    
+    @objc func button30Tapped(sender: UIButton!) {
+        changeImage(button30, number: 3)
+        checkGameOver()
+        button30.isEnabled = false
+    }
+    
+    @objc func button40Tapped(sender: UIButton!) {
+        changeImage(button40, number: 4)
+        checkGameOver()
+        button40.isEnabled = false
+    }
+    
+    @objc func button50Tapped(sender: UIButton!) {
+        changeImage(button50, number: 5)
+        checkGameOver()
+        button50.isEnabled = false
+    }
+    
+    @objc func button60Tapped(sender: UIButton!) {
+        changeImage(button60, number: 6)
+        checkGameOver()
+        button60.isEnabled = false
+    }
+    
+    @objc func button70Tapped(sender: UIButton!) {
+        changeImage(button70, number: 7)
+        checkGameOver()
+        button70.isEnabled = false
+    }
+    
+    @objc func button80Tapped(sender: UIButton!) {
+        changeImage(button80, number: 8)
+        checkGameOver()
+        button80.isEnabled = false
+    }
+    
+    @objc func button90Tapped(sender: UIButton!) {
+        changeImage(button90, number: 9)
+        checkGameOver()
+        button90.isEnabled = false
+    }
+    
     
 }
-
