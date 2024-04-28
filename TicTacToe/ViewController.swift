@@ -9,14 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var label: UILabel!
-   
-    
-    
-    
     var checkIfTapped = false
-    
-    
     var arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var winCombinations = [[1, 2, 3],
@@ -28,6 +21,7 @@ class ViewController: UIViewController {
                            [1, 5, 9],
                            [3, 5, 7]]
     var count = 0
+    let label = UILabel()
     let board = UIImageView()
     let button10 = UIButton()
     let button20 = UIButton()
@@ -41,54 +35,123 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        board.image = .boardForTTT
-        board.frame = CGRect(x: 0, y: 200, width: 400, height: 350)
         
-        view.addSubview(board)
-        // Do any additional setup after loading the view.
+        view.addSubview(label)
+        label.text = "Cross"
+        label.frame = CGRect(x: 225, y: 68, width: 60, height: 20)
+        label.textColor = .black
+        
         newGame()
+        setBackground()
+        setButton10()
+        setButton20()
+        setButton30()
         
-        
-        
+        setButton40()
+        setButton50()
+        setButton60()
+        setButton70()
+        setButton80()
+        setButton90()
+    }
+    
+    func setBackground() {
+        view.addSubview(board)
+        board.image = .boardForTTT
+        board.translatesAutoresizingMaskIntoConstraints = false
+        board.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        board.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        board.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        board.widthAnchor.constraint(equalToConstant: 450).isActive = true
+    }
+    
+    func setButton10() {
         view.addSubview(button10)
-        button10.frame = CGRect(x: 60, y: 225, width: 80, height: 80)
+        button10.translatesAutoresizingMaskIntoConstraints = false
+        button10.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -135).isActive = true
+        button10.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -120).isActive = true
+        button10.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button10.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button10.addTarget(self, action: #selector(button10Tapped), for: .touchUpInside)
-        
-        
+    }
+    
+    func setButton20() {
         view.addSubview(button20)
-        button20.frame = CGRect(x: 160, y: 225, width: 80, height: 80)
+        button20.translatesAutoresizingMaskIntoConstraints = false
+        button20.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -135).isActive = true
+        button20.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        button20.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button20.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button20.addTarget(self, action: #selector(button20Tapped), for: .touchUpInside)
-        
+    }
+    
+    func setButton30() {
         view.addSubview(button30)
-        button30.frame = CGRect(x: 260, y: 225, width: 80, height: 80)
+        button30.translatesAutoresizingMaskIntoConstraints = false
+        button30.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -135).isActive = true
+        button30.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 120).isActive = true
+        button30.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button30.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button30.addTarget(self, action: #selector(button30Tapped), for: .touchUpInside)
-        
+    }
+    
+    func setButton40() {
         view.addSubview(button40)
-        button40.frame = CGRect(x: 60, y: 335, width: 80, height: 80)
+        button40.translatesAutoresizingMaskIntoConstraints = false
+        button40.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+        button40.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -120).isActive = true
+        button40.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button40.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button40.addTarget(self, action: #selector(button40Tapped), for: .touchUpInside)
-        
-
+    }
+    
+    func setButton50() {
         view.addSubview(button50)
-        button50.frame = CGRect(x: 160, y: 335, width: 80, height: 80)
+        button50.translatesAutoresizingMaskIntoConstraints = false
+        button50.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+        button50.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        button50.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button50.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button50.addTarget(self, action: #selector(button50Tapped), for: .touchUpInside)
-        
+    }
     
+    func setButton60() {
         view.addSubview(button60)
-        button60.frame = CGRect(x: 260, y: 335, width: 80, height: 80)
+        button60.translatesAutoresizingMaskIntoConstraints = false
+        button60.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+        button60.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 120).isActive = true
+        button60.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button60.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button60.addTarget(self, action: #selector(button60Tapped), for: .touchUpInside)
-        
-        view.addSubview(button70)
-        button70.frame = CGRect(x: 60, y: 445, width: 80, height: 80)
-        button70.addTarget(self, action: #selector(button70Tapped), for: .touchUpInside)
-        
-        
-        view.addSubview(button80)
-        button80.frame = CGRect(x: 160, y: 445, width: 80, height: 80)
-        button80.addTarget(self, action: #selector(button80Tapped), for: .touchUpInside)
-        
+    }
     
+    func setButton70() {
+        view.addSubview(button70)
+        button70.translatesAutoresizingMaskIntoConstraints = false
+        button70.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 135).isActive = true
+        button70.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -120).isActive = true
+        button70.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button70.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        button70.addTarget(self, action: #selector(button70Tapped), for: .touchUpInside)
+    }
+    
+    func setButton80() {
+        view.addSubview(button80)
+        button80.translatesAutoresizingMaskIntoConstraints = false
+        button80.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 135).isActive = true
+        button80.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        button80.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button80.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        button80.addTarget(self, action: #selector(button80Tapped), for: .touchUpInside)
+    }
+    
+    func setButton90() {
         view.addSubview(button90)
-        button90.frame = CGRect(x: 260, y: 445, width: 80, height: 80)
+        button90.translatesAutoresizingMaskIntoConstraints = false
+        button90.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 135).isActive = true
+        button90.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 120).isActive = true
+        button90.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button90.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button90.addTarget(self, action: #selector(button90Tapped), for: .touchUpInside)
     }
     
@@ -105,7 +168,6 @@ class ViewController: UIViewController {
         button70.setImage(.none, for: .normal)
         button80.setImage(.none, for: .normal)
         button90.setImage(.none, for: .normal)
-        
         button10.isEnabled = true
         button20.isEnabled = true
         button30.isEnabled = true
@@ -115,7 +177,6 @@ class ViewController: UIViewController {
         button70.isEnabled = true
         button80.isEnabled = true
         button90.isEnabled = true
-        
         count = 0
     }
     
@@ -166,6 +227,7 @@ class ViewController: UIViewController {
         checkGameOver()
         button10.isEnabled = false
     }
+    
     @objc func button20Tapped(sender: UIButton!) {
         changeImage(button20, number: 2)
         checkGameOver()
@@ -213,6 +275,4 @@ class ViewController: UIViewController {
         checkGameOver()
         button90.isEnabled = false
     }
-    
-    
 }
