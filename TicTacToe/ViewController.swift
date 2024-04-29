@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     func setBackground() {
-        view.addSubview(board)
+//        view.addArrangedSubview(UIView)
         board.image = .boardForTTT
         board.translatesAutoresizingMaskIntoConstraints = false
         board.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
