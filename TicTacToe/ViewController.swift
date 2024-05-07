@@ -21,6 +21,9 @@ class ViewController: UIViewController {
                            [1, 5, 9],
                            [3, 5, 7]]
     var count = 0
+    var stackView1 = UIStackView()
+    var stackView2 = UIStackView()
+    var stackView3 = UIStackView()
     let label = UILabel()
     let board = UIImageView()
     let button10 = UIButton()
@@ -37,6 +40,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(label)
+        view.addSubview(board)
         label.text = "Cross"
         label.frame = CGRect(x: 225, y: 68, width: 60, height: 20)
         label.textColor = .black
@@ -46,112 +50,114 @@ class ViewController: UIViewController {
         setButton10()
         setButton20()
         setButton30()
-        
         setButton40()
         setButton50()
         setButton60()
         setButton70()
         setButton80()
         setButton90()
+        
+        configureStackView(stackView: stackView1)
+        addButtonToStackView(stackView: stackView1, button1: button10, button2: button20, button3: button30)
+        setStackView1Contrains()
+        
+        configureStackView(stackView: stackView2)
+        addButtonToStackView(stackView: stackView2, button1: button40, button2: button50, button3: button60)
+        setStackView2Contrains()
+        
+        configureStackView(stackView: stackView3)
+        addButtonToStackView(stackView: stackView3, button1: button70, button2: button80, button3: button90)
+        setStackView3Contrains()
+    }
+    
+    func configureStackView(stackView: UIStackView) {
+        view.addSubview(stackView)
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 20
+    }
+    
+    func addButtonToStackView(stackView: UIStackView, button1: UIButton, button2: UIButton, button3: UIButton) {
+        stackView.addArrangedSubview(button1)
+        stackView.addArrangedSubview(button2)
+        stackView.addArrangedSubview(button3)
+    }
+    
+    func setStackView1Contrains() {
+        stackView1.translatesAutoresizingMaskIntoConstraints = false
+        stackView1.topAnchor.constraint(equalTo: board.topAnchor, constant: 20).isActive = true
+        stackView1.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
+        stackView1.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
+        stackView1.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -280).isActive = true
+    }
+    
+    func setStackView2Contrains() {
+        stackView2.translatesAutoresizingMaskIntoConstraints = false
+        stackView2.topAnchor.constraint(equalTo: board.topAnchor, constant: 150).isActive = true
+        stackView2.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
+        stackView2.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
+        stackView2.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -150).isActive = true
+    }
+    
+    func setStackView3Contrains() {
+        stackView3.translatesAutoresizingMaskIntoConstraints = false
+        stackView3.topAnchor.constraint(equalTo: board.topAnchor, constant: 280).isActive = true
+        stackView3.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
+        stackView3.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
+        stackView3.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -20).isActive = true
     }
     
     func setBackground() {
-//        view.addArrangedSubview(UIView)
         board.image = .boardForTTT
         board.translatesAutoresizingMaskIntoConstraints = false
-        board.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        board.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        board.heightAnchor.constraint(equalToConstant: 450).isActive = true
-        board.widthAnchor.constraint(equalToConstant: 450).isActive = true
+        board.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        board.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+        board.widthAnchor.constraint(equalToConstant: 400).isActive = true
+        board.heightAnchor.constraint(equalToConstant: 400).isActive = true
     }
     
     func setButton10() {
         view.addSubview(button10)
-        button10.translatesAutoresizingMaskIntoConstraints = false
-        button10.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -135).isActive = true
-        button10.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -120).isActive = true
-        button10.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button10.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button10.addTarget(self, action: #selector(button10Tapped), for: .touchUpInside)
     }
     
     func setButton20() {
         view.addSubview(button20)
-        button20.translatesAutoresizingMaskIntoConstraints = false
-        button20.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -135).isActive = true
-        button20.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        button20.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button20.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button20.addTarget(self, action: #selector(button20Tapped), for: .touchUpInside)
     }
     
     func setButton30() {
         view.addSubview(button30)
-        button30.translatesAutoresizingMaskIntoConstraints = false
-        button30.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -135).isActive = true
-        button30.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 120).isActive = true
-        button30.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button30.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button30.addTarget(self, action: #selector(button30Tapped), for: .touchUpInside)
     }
     
     func setButton40() {
         view.addSubview(button40)
-        button40.translatesAutoresizingMaskIntoConstraints = false
-        button40.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        button40.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -120).isActive = true
-        button40.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button40.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button40.addTarget(self, action: #selector(button40Tapped), for: .touchUpInside)
     }
     
     func setButton50() {
         view.addSubview(button50)
-        button50.translatesAutoresizingMaskIntoConstraints = false
-        button50.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        button50.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        button50.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button50.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button50.addTarget(self, action: #selector(button50Tapped), for: .touchUpInside)
     }
     
     func setButton60() {
         view.addSubview(button60)
-        button60.translatesAutoresizingMaskIntoConstraints = false
-        button60.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        button60.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 120).isActive = true
-        button60.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button60.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button60.addTarget(self, action: #selector(button60Tapped), for: .touchUpInside)
     }
     
     func setButton70() {
         view.addSubview(button70)
-        button70.translatesAutoresizingMaskIntoConstraints = false
-        button70.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 135).isActive = true
-        button70.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -120).isActive = true
-        button70.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button70.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button70.addTarget(self, action: #selector(button70Tapped), for: .touchUpInside)
     }
     
     func setButton80() {
         view.addSubview(button80)
-        button80.translatesAutoresizingMaskIntoConstraints = false
-        button80.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 135).isActive = true
-        button80.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        button80.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button80.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button80.addTarget(self, action: #selector(button80Tapped), for: .touchUpInside)
     }
     
     func setButton90() {
         view.addSubview(button90)
-        button90.translatesAutoresizingMaskIntoConstraints = false
-        button90.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 135).isActive = true
-        button90.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 120).isActive = true
-        button90.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button90.widthAnchor.constraint(equalToConstant: 100).isActive = true
         button90.addTarget(self, action: #selector(button90Tapped), for: .touchUpInside)
     }
     
@@ -221,9 +227,7 @@ class ViewController: UIViewController {
     }
     
     @objc func button10Tapped(sender: UIButton!) {
-        
         changeImage(button10, number: 1)
-        
         checkGameOver()
         button10.isEnabled = false
     }
