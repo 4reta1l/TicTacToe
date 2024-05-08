@@ -21,9 +21,12 @@ class ViewController: UIViewController {
                            [1, 5, 9],
                            [3, 5, 7]]
     var count = 0
-    var stackView1 = UIStackView()
-    var stackView2 = UIStackView()
-    var stackView3 = UIStackView()
+    var countOfCrosses = 0
+    var countOfCircles = 0
+    let stackView1 = UIStackView()
+    let stackView2 = UIStackView()
+    let stackView3 = UIStackView()
+    let stackView4 = UIStackView()
     let label = UILabel()
     let board = UIImageView()
     let button10 = UIButton()
@@ -41,9 +44,13 @@ class ViewController: UIViewController {
         
         view.addSubview(label)
         view.addSubview(board)
+        board.image = .boardForTTT
+        board.translatesAutoresizingMaskIntoConstraints = false
+        let aspectRatioContraint = NSLayoutConstraint(item: board, attribute: .width, relatedBy: .equal, toItem: board, attribute: .height, multiplier: 1, constant: 0)
+        aspectRatioContraint.isActive = true
         label.text = "Cross"
         label.frame = CGRect(x: 225, y: 68, width: 60, height: 20)
-        label.textColor = .black
+        label.textColor = .white
         
         newGame()
         setBackground()
@@ -59,19 +66,24 @@ class ViewController: UIViewController {
         
         configureStackView(stackView: stackView1)
         addButtonToStackView(stackView: stackView1, button1: button10, button2: button20, button3: button30)
-        setStackView1Contrains()
         
         configureStackView(stackView: stackView2)
         addButtonToStackView(stackView: stackView2, button1: button40, button2: button50, button3: button60)
-        setStackView2Contrains()
         
         configureStackView(stackView: stackView3)
         addButtonToStackView(stackView: stackView3, button1: button70, button2: button80, button3: button90)
-        setStackView3Contrains()
+        
+        view.addSubview(stackView4)
+        stackView4.axis = .vertical
+        stackView4.distribution = .fillEqually
+        stackView4.spacing = 20
+        stackView4.addArrangedSubview(stackView1)
+        stackView4.addArrangedSubview(stackView2)
+        stackView4.addArrangedSubview(stackView3)
+        setStackView4Contrains()
     }
     
     func configureStackView(stackView: UIStackView) {
-        view.addSubview(stackView)
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.spacing = 20
@@ -83,37 +95,20 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(button3)
     }
     
-    func setStackView1Contrains() {
-        stackView1.translatesAutoresizingMaskIntoConstraints = false
-        stackView1.topAnchor.constraint(equalTo: board.topAnchor, constant: 20).isActive = true
-        stackView1.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
-        stackView1.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
-        stackView1.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -280).isActive = true
-    }
-    
-    func setStackView2Contrains() {
-        stackView2.translatesAutoresizingMaskIntoConstraints = false
-        stackView2.topAnchor.constraint(equalTo: board.topAnchor, constant: 150).isActive = true
-        stackView2.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
-        stackView2.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
-        stackView2.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -150).isActive = true
-    }
-    
-    func setStackView3Contrains() {
-        stackView3.translatesAutoresizingMaskIntoConstraints = false
-        stackView3.topAnchor.constraint(equalTo: board.topAnchor, constant: 280).isActive = true
-        stackView3.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
-        stackView3.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
-        stackView3.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -20).isActive = true
+    func setStackView4Contrains() {
+        stackView4.translatesAutoresizingMaskIntoConstraints = false
+        stackView4.topAnchor.constraint(equalTo: board.topAnchor, constant: 20).isActive = true
+        stackView4.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
+        stackView4.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
+        stackView4.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -20).isActive = true
     }
     
     func setBackground() {
-        board.image = .boardForTTT
-        board.translatesAutoresizingMaskIntoConstraints = false
-        board.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        board.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
-        board.widthAnchor.constraint(equalToConstant: 400).isActive = true
-        board.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        NSLayoutConstraint.activate([
+        board.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        board.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        board.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
+        ])
     }
     
     func setButton10() {
@@ -184,6 +179,8 @@ class ViewController: UIViewController {
         button80.isEnabled = true
         button90.isEnabled = true
         count = 0
+        countOfCircles = 0
+        countOfCrosses = 0
     }
     
     
@@ -192,10 +189,12 @@ class ViewController: UIViewController {
             button.setImage(.circle, for: .normal)
             label.text = "Cross"
             arrayForCircles[number - 1] = number
+            countOfCircles += 1
         } else {
             button.setImage(.cross, for: .normal)
             label.text = "Circle"
             arrayForCrosses[number - 1] = number
+            countOfCrosses += 1
         }
         count += 1
     }
