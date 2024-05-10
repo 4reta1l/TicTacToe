@@ -23,6 +23,18 @@ class ViewController: UIViewController {
     var count = 0
     var countOfCrosses = 0
     var countOfCircles = 0
+    var firstCross: UIButton?
+    var secondCross: UIButton?
+    var thirdCross: UIButton?
+    var firstCircle: UIButton?
+    var secondCircle: UIButton?
+    var thirdCircle: UIButton?
+    var number1Cross: Int?
+    var number2Cross: Int?
+    var number3Cross: Int?
+    var number1Circle: Int?
+    var number2Circle: Int?
+    var number3Circle: Int?
     let stackView1 = UIStackView()
     let stackView2 = UIStackView()
     let stackView3 = UIStackView()
@@ -186,17 +198,42 @@ class ViewController: UIViewController {
     
     func changeImage(_ button: UIButton, number: Int) {
         if label.text == "Circle" {
+            if countOfCircles >= 3 {
+                arrayForCircles[number1Circle! - 1] = 0
+                firstCircle!.isEnabled = true
+                firstCircle!.setImage(.none, for: .normal)
+            }
+            number1Circle = number2Circle
+            number2Circle = number3Circle
+            number3Circle = number
+            firstCircle = secondCircle
+            secondCircle = thirdCircle
+            thirdCircle = button
             button.setImage(.circle, for: .normal)
             label.text = "Cross"
             arrayForCircles[number - 1] = number
             countOfCircles += 1
+           
         } else {
+            if countOfCrosses >= 3 {
+                arrayForCrosses[number1Cross! - 1] = 0
+                firstCross!.isEnabled = true
+                firstCross!.setImage(.none, for: .normal)
+            }
+            number1Cross = number2Cross
+            number2Cross = number3Cross
+            number3Cross = number
+            firstCross = secondCross
+            secondCross = thirdCross
+            thirdCross = button
             button.setImage(.cross, for: .normal)
             label.text = "Circle"
             arrayForCrosses[number - 1] = number
             countOfCrosses += 1
         }
-        count += 1
+        
+        
+//        count += 1
     }
     
     func checkIfWon(_ array: Array<Int>) {
@@ -210,19 +247,19 @@ class ViewController: UIViewController {
         }
     }
     
-    func checkIfDraw() {
-        if count == 9 {
-            let ac = UIAlertController(title: "Game over", message: "Draw", preferredStyle: .alert)
-            let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
-            ac.addAction(playAgainAction)
-            present(ac, animated: true)
-        }
-    }
+//    func checkIfDraw() {
+//        if count == 9 {
+//            let ac = UIAlertController(title: "Game over", message: "Draw", preferredStyle: .alert)
+//            let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
+//            ac.addAction(playAgainAction)
+//            present(ac, animated: true)
+//        }
+//    }
     
     func checkGameOver() {
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-        checkIfDraw()
+//        checkIfDraw()
     }
     
     @objc func button10Tapped(sender: UIButton!) {
