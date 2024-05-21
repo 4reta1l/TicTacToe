@@ -41,19 +41,12 @@ class ViewController: UIViewController {
     let stackView4 = UIStackView()
     let label = UILabel()
     let board = UIImageView()
-    let button10 = UIButton()
-    let button20 = UIButton()
-    let button30 = UIButton()
-    let button40 = UIButton()
-    let button50 = UIButton()
-    let button60 = UIButton()
-    let button70 = UIButton()
-    let button80 = UIButton()
-    let button90 = UIButton()
+    var buttonsArray = [UIButton]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createButtons()
         view.addSubview(label)
         view.addSubview(board)
         board.image = .boardForTTT
@@ -64,26 +57,16 @@ class ViewController: UIViewController {
         label.frame = CGRect(x: 225, y: 68, width: 60, height: 20)
         label.textColor = .white
         
-        newGame()
         setBackground()
-        setButton10()
-        setButton20()
-        setButton30()
-        setButton40()
-        setButton50()
-        setButton60()
-        setButton70()
-        setButton80()
-        setButton90()
         
         configureStackView(stackView: stackView1)
-        addButtonToStackView(stackView: stackView1, button1: button10, button2: button20, button3: button30)
+        addButtonToStackView(stackView: stackView1, button1: buttonsArray[0], button2: buttonsArray[1], button3: buttonsArray[2])
         
         configureStackView(stackView: stackView2)
-        addButtonToStackView(stackView: stackView2, button1: button40, button2: button50, button3: button60)
+        addButtonToStackView(stackView: stackView2, button1: buttonsArray[3], button2: buttonsArray[4], button3: buttonsArray[5])
         
         configureStackView(stackView: stackView3)
-        addButtonToStackView(stackView: stackView3, button1: button70, button2: button80, button3: button90)
+        addButtonToStackView(stackView: stackView3, button1: buttonsArray[6], button2: buttonsArray[7], button3: buttonsArray[8])
         
         view.addSubview(stackView4)
         stackView4.axis = .vertical
@@ -93,6 +76,17 @@ class ViewController: UIViewController {
         stackView4.addArrangedSubview(stackView2)
         stackView4.addArrangedSubview(stackView3)
         setStackView4Contrains()
+        newGame()
+    }
+    
+    func createButtons() {
+        for i in 0..<9 {
+            let button = UIButton()
+            button.tag = i
+            buttonsArray.append(button)
+            view.addSubview(buttonsArray[i])
+            buttonsArray[i].addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        }
     }
     
     func configureStackView(stackView: UIStackView) {
@@ -119,80 +113,23 @@ class ViewController: UIViewController {
         NSLayoutConstraint.activate([
         board.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         board.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        board.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
+        board.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
         ])
-    }
-    
-    func setButton10() {
-        view.addSubview(button10)
-        button10.addTarget(self, action: #selector(button10Tapped), for: .touchUpInside)
-    }
-    
-    func setButton20() {
-        view.addSubview(button20)
-        button20.addTarget(self, action: #selector(button20Tapped), for: .touchUpInside)
-    }
-    
-    func setButton30() {
-        view.addSubview(button30)
-        button30.addTarget(self, action: #selector(button30Tapped), for: .touchUpInside)
-    }
-    
-    func setButton40() {
-        view.addSubview(button40)
-        button40.addTarget(self, action: #selector(button40Tapped), for: .touchUpInside)
-    }
-    
-    func setButton50() {
-        view.addSubview(button50)
-        button50.addTarget(self, action: #selector(button50Tapped), for: .touchUpInside)
-    }
-    
-    func setButton60() {
-        view.addSubview(button60)
-        button60.addTarget(self, action: #selector(button60Tapped), for: .touchUpInside)
-    }
-    
-    func setButton70() {
-        view.addSubview(button70)
-        button70.addTarget(self, action: #selector(button70Tapped), for: .touchUpInside)
-    }
-    
-    func setButton80() {
-        view.addSubview(button80)
-        button80.addTarget(self, action: #selector(button80Tapped), for: .touchUpInside)
-    }
-    
-    func setButton90() {
-        view.addSubview(button90)
-        button90.addTarget(self, action: #selector(button90Tapped), for: .touchUpInside)
     }
     
     func newGame() {
         arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         label.text = "Cross"
-        button10.setImage(.none, for: .normal)
-        button20.setImage(.none, for: .normal)
-        button30.setImage(.none, for: .normal)
-        button40.setImage(.none, for: .normal)
-        button50.setImage(.none, for: .normal)
-        button60.setImage(.none, for: .normal)
-        button70.setImage(.none, for: .normal)
-        button80.setImage(.none, for: .normal)
-        button90.setImage(.none, for: .normal)
-        button10.isEnabled = true
-        button20.isEnabled = true
-        button30.isEnabled = true
-        button40.isEnabled = true
-        button50.isEnabled = true
-        button60.isEnabled = true
-        button70.isEnabled = true
-        button80.isEnabled = true
-        button90.isEnabled = true
+        for i in 0..<buttonsArray.count {
+            buttonsArray[i].setImage(.none, for: .normal)
+            buttonsArray[i].isEnabled = true
+        }
         count = 0
         countOfCircles = 0
         countOfCrosses = 0
+        firstCross?.backgroundColor = .white
+        firstCircle?.backgroundColor = .white
     }
     
     
@@ -206,7 +143,11 @@ class ViewController: UIViewController {
             number1Circle = number2Circle
             number2Circle = number3Circle
             number3Circle = number
+            firstCircle?.backgroundColor = .white
             firstCircle = secondCircle
+            if let x = firstCircle {
+                x.backgroundColor = .systemGreen
+            }
             secondCircle = thirdCircle
             thirdCircle = button
             button.setImage(.circle, for: .normal)
@@ -223,7 +164,11 @@ class ViewController: UIViewController {
             number1Cross = number2Cross
             number2Cross = number3Cross
             number3Cross = number
+            firstCross?.backgroundColor = .white
             firstCross = secondCross
+            if let x = firstCross {
+                x.backgroundColor = .systemPink
+            }
             secondCross = thirdCross
             thirdCross = button
             button.setImage(.cross, for: .normal)
@@ -262,57 +207,9 @@ class ViewController: UIViewController {
 //        checkIfDraw()
     }
     
-    @objc func button10Tapped(sender: UIButton!) {
-        changeImage(button10, number: 1)
+    @objc func buttonTapped(sender: UIButton!) {
+        changeImage(buttonsArray[sender.tag], number: sender.tag + 1)
         checkGameOver()
-        button10.isEnabled = false
-    }
-    
-    @objc func button20Tapped(sender: UIButton!) {
-        changeImage(button20, number: 2)
-        checkGameOver()
-        button20.isEnabled = false
-    }
-    
-    @objc func button30Tapped(sender: UIButton!) {
-        changeImage(button30, number: 3)
-        checkGameOver()
-        button30.isEnabled = false
-    }
-    
-    @objc func button40Tapped(sender: UIButton!) {
-        changeImage(button40, number: 4)
-        checkGameOver()
-        button40.isEnabled = false
-    }
-    
-    @objc func button50Tapped(sender: UIButton!) {
-        changeImage(button50, number: 5)
-        checkGameOver()
-        button50.isEnabled = false
-    }
-    
-    @objc func button60Tapped(sender: UIButton!) {
-        changeImage(button60, number: 6)
-        checkGameOver()
-        button60.isEnabled = false
-    }
-    
-    @objc func button70Tapped(sender: UIButton!) {
-        changeImage(button70, number: 7)
-        checkGameOver()
-        button70.isEnabled = false
-    }
-    
-    @objc func button80Tapped(sender: UIButton!) {
-        changeImage(button80, number: 8)
-        checkGameOver()
-        button80.isEnabled = false
-    }
-    
-    @objc func button90Tapped(sender: UIButton!) {
-        changeImage(button90, number: 9)
-        checkGameOver()
-        button90.isEnabled = false
+        buttonsArray[sender.tag].isEnabled = false
     }
 }
