@@ -8,8 +8,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+
+    @IBOutlet var label: UILabel!
+    @IBOutlet var image1: UIImageView!
+    @IBOutlet var image2: UIImageView!
+    @IBOutlet var image3: UIImageView!
+    @IBOutlet var image4: UIImageView!
+    @IBOutlet var image5: UIImageView!
+    @IBOutlet var image6: UIImageView!
+    @IBOutlet var image7: UIImageView!
+    @IBOutlet var image8: UIImageView!
+    @IBOutlet var image9: UIImageView!
+    @IBOutlet var button1: UIButton!
+    @IBOutlet var button2: UIButton!
+    @IBOutlet var button3: UIButton!
+    @IBOutlet var button4: UIButton!
+    @IBOutlet var button5: UIButton!
+    @IBOutlet var button6: UIButton!
+    @IBOutlet var button7: UIButton!
+    @IBOutlet var button8: UIButton!
+    @IBOutlet var button9: UIButton!
+    @IBOutlet var board: UIImageView!
     
-    var checkIfTapped = false
+    enum picture {
+        case circle
+        case cross
+    }
+    
+    
     var arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     var winCombinations = [[1, 2, 3],
@@ -21,159 +47,60 @@ class ViewController: UIViewController {
                            [1, 5, 9],
                            [3, 5, 7]]
     var count = 0
-    var countOfCrosses = 0
-    var countOfCircles = 0
-    var firstCross: UIButton?
-    var secondCross: UIButton?
-    var thirdCross: UIButton?
-    var firstCircle: UIButton?
-    var secondCircle: UIButton?
-    var thirdCircle: UIButton?
-    var number1Cross: Int?
-    var number2Cross: Int?
-    var number3Cross: Int?
-    var number1Circle: Int?
-    var number2Circle: Int?
-    var number3Circle: Int?
-    let stackView1 = UIStackView()
-    let stackView2 = UIStackView()
-    let stackView3 = UIStackView()
-    let stackView4 = UIStackView()
-    let label = UILabel()
-    let board = UIImageView()
-    var buttonsArray = [UIButton]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
-        createButtons()
-        setBackground()
-        view.addSubview(label)
-        view.addSubview(board)
-        board.image = .boardForTTT
-        board.translatesAutoresizingMaskIntoConstraints = false
-        let aspectRatioContraint = NSLayoutConstraint(item: board, attribute: .width, relatedBy: .equal, toItem: board, attribute: .height, multiplier: 1, constant: 0)
-        aspectRatioContraint.isActive = true
-        label.text = "Cross"
-        label.frame = CGRect(x: 225, y: 68, width: 60, height: 20)
-        label.textColor = .white
-
-        configureStackView(stackView: stackView1)
-        addButtonToStackView(stackView: stackView1, button1: buttonsArray[0], button2: buttonsArray[1], button3: buttonsArray[2])
-        
-        configureStackView(stackView: stackView2)
-        addButtonToStackView(stackView: stackView2, button1: buttonsArray[3], button2: buttonsArray[4], button3: buttonsArray[5])
-        
-        configureStackView(stackView: stackView3)
-        addButtonToStackView(stackView: stackView3, button1: buttonsArray[6], button2: buttonsArray[7], button3: buttonsArray[8])
-        
-        view.addSubview(stackView4)
-        stackView4.axis = .vertical
-        stackView4.distribution = .fillEqually
-        stackView4.spacing = 20
-        stackView4.addArrangedSubview(stackView1)
-        stackView4.addArrangedSubview(stackView2)
-        stackView4.addArrangedSubview(stackView3)
-        setStackView4Contrains()
         newGame()
+        
     }
-    
-    func createButtons() {
-        for i in 0..<9 {
-            let button = UIButton()
-            button.tag = i
-            buttonsArray.append(button)
-            view.addSubview(buttonsArray[i])
-            buttonsArray[i].addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        }
-    }
-    
-    func configureStackView(stackView: UIStackView) {
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 20
-    }
-    
-    func addButtonToStackView(stackView: UIStackView, button1: UIButton, button2: UIButton, button3: UIButton) {
-        stackView.addArrangedSubview(button1)
-        stackView.addArrangedSubview(button2)
-        stackView.addArrangedSubview(button3)
-    }
-    
-    func setStackView4Contrains() {
-        stackView4.translatesAutoresizingMaskIntoConstraints = false
-        stackView4.topAnchor.constraint(equalTo: board.topAnchor, constant: 20).isActive = true
-        stackView4.leadingAnchor.constraint(equalTo: board.leadingAnchor, constant: 60).isActive = true
-        stackView4.trailingAnchor.constraint(equalTo: board.trailingAnchor, constant: -60).isActive = true
-        stackView4.bottomAnchor.constraint(equalTo: board.bottomAnchor, constant: -20).isActive = true
-    }
-    
-    func setBackground() {
-        NSLayoutConstraint.activate([
-        board.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        board.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        board.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
-        ])
-    }
-    
+
     func newGame() {
         arrayForCrosses = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         arrayForCircles = [0, 0, 0, 0, 0, 0, 0, 0, 0]
         label.text = "Cross"
-        for i in 0..<buttonsArray.count {
-            buttonsArray[i].setImage(.none, for: .normal)
-            buttonsArray[i].isEnabled = true
-        }
+        image1.image = nil
+        image2.image = nil
+        image3.image = nil
+        image4.image = nil
+        image5.image = nil
+        image6.image = nil
+        image7.image = nil
+        image8.image = nil
+        image9.image = nil
+        button1.isEnabled = true
+        button2.isEnabled = true
+        button3.isEnabled = true
+        button4.isEnabled = true
+        button5.isEnabled = true
+        button6.isEnabled = true
+        button7.isEnabled = true
+        button8.isEnabled = true
+        button9.isEnabled = true
         count = 0
-        countOfCircles = 0
-        countOfCrosses = 0
-        firstCross?.backgroundColor = .white
-        firstCircle?.backgroundColor = .white
     }
     
-    func changeImage(_ button: UIButton, number: Int) {
+    func assets(for picture: picture) -> UIImage? {
+        switch picture {
+        case .circle:
+            return UIImage(named: "circle")
+        case .cross:
+            return UIImage(named: "cross")
+        }
+    }
+    
+    func changeImage(_ image: UIImageView, number: Int) {
         if label.text == "Circle" {
-            if countOfCircles >= 3 {
-                arrayForCircles[number1Circle! - 1] = 0
-                firstCircle!.isEnabled = true
-                firstCircle!.setImage(.none, for: .normal)
-            }
-            number1Circle = number2Circle
-            number2Circle = number3Circle
-            number3Circle = number
-            firstCircle?.backgroundColor = .white
-            firstCircle = secondCircle
-            if let x = firstCircle {
-                x.backgroundColor = .systemGreen
-            }
-            secondCircle = thirdCircle
-            thirdCircle = button
-            button.setImage(.circle, for: .normal)
+            image.image = .circle
             label.text = "Cross"
             arrayForCircles[number - 1] = number
-            countOfCircles += 1
         } else {
-            if countOfCrosses >= 3 {
-                arrayForCrosses[number1Cross! - 1] = 0
-                firstCross!.isEnabled = true
-                firstCross!.setImage(.none, for: .normal)
-            }
-            number1Cross = number2Cross
-            number2Cross = number3Cross
-            number3Cross = number
-            firstCross?.backgroundColor = .white
-            firstCross = secondCross
-            if let x = firstCross {
-                x.backgroundColor = .systemPink
-            }
-            secondCross = thirdCross
-            thirdCross = button
-            button.setImage(.cross, for: .normal)
+            image.image = .cross
             label.text = "Circle"
             arrayForCrosses[number - 1] = number
-            countOfCrosses += 1
         }
-//        count += 1
+        count += 1
     }
     
     func checkIfWon(_ array: Array<Int>) {
@@ -187,24 +114,69 @@ class ViewController: UIViewController {
         }
     }
     
-//    func checkIfDraw() {
-//        if count == 9 {
-//            let ac = UIAlertController(title: "Game over", message: "Draw", preferredStyle: .alert)
-//            let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
-//            ac.addAction(playAgainAction)
-//            present(ac, animated: true)
-//        }
-//    }
+    func checkIfDraw() {
+        if count == 9 {
+            let ac = UIAlertController(title: "Game over", message: "Draw", preferredStyle: .alert)
+            let playAgainAction = UIAlertAction(title: "Wanna play once more?", style: .default) { _ in self.newGame()}
+            ac.addAction(playAgainAction)
+            present(ac, animated: true)
+        }
+    }
     
     func checkGameOver() {
         checkIfWon(arrayForCircles)
         checkIfWon(arrayForCrosses)
-//        checkIfDraw()
+        checkIfDraw()
     }
     
-    @objc func buttonTapped(sender: UIButton!) {
-        changeImage(buttonsArray[sender.tag], number: sender.tag + 1)
+    @IBAction func button1Clicked(_ sender: Any) {
+        changeImage(image1, number: 1)
         checkGameOver()
-        buttonsArray[sender.tag].isEnabled = false
+        button1.isEnabled = false
+    
     }
+    
+    @IBAction func button2Clicked(_ sender: Any) {
+        changeImage(image2, number: 2)
+        checkGameOver()
+        button2.isEnabled = false
+    }
+    @IBAction func button3Clicked(_ sender: Any) {
+        changeImage(image3, number: 3)
+        checkGameOver()
+        button3.isEnabled = false
+    }
+    @IBAction func button4Clicked(_ sender: Any) {
+        changeImage(image4, number: 4)
+        checkGameOver()
+        button4.isEnabled = false
+    }
+    @IBAction func button5Clicked(_ sender: Any) {
+        changeImage(image5, number: 5)
+        checkGameOver()
+        button5.isEnabled = false
+    }
+    @IBAction func button6Clicked(_ sender: Any) {
+        changeImage(image6, number: 6)
+        checkGameOver()
+        button6.isEnabled = false
+    }
+    @IBAction func button7Clicked(_ sender: Any) {
+        changeImage(image7, number: 7)
+        checkGameOver()
+        button7.isEnabled = false
+    }
+    @IBAction func button8Clicked(_ sender: Any) {
+        changeImage(image8, number: 8)
+        checkGameOver()
+        button8.isEnabled = false
+        
+    }
+    @IBAction func button9Clicked(_ sender: Any) {
+        changeImage(image9, number: 9)
+        checkGameOver()
+        button9.isEnabled = false
+    }
+    
 }
+
