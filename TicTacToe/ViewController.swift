@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         createButtons()
+        setBackground()
         view.addSubview(label)
         view.addSubview(board)
         board.image = .boardForTTT
@@ -56,9 +57,7 @@ class ViewController: UIViewController {
         label.text = "Cross"
         label.frame = CGRect(x: 225, y: 68, width: 60, height: 20)
         label.textColor = .white
-        
-        setBackground()
-        
+
         configureStackView(stackView: stackView1)
         addButtonToStackView(stackView: stackView1, button1: buttonsArray[0], button2: buttonsArray[1], button3: buttonsArray[2])
         
@@ -132,7 +131,6 @@ class ViewController: UIViewController {
         firstCircle?.backgroundColor = .white
     }
     
-    
     func changeImage(_ button: UIButton, number: Int) {
         if label.text == "Circle" {
             if countOfCircles >= 3 {
@@ -154,7 +152,6 @@ class ViewController: UIViewController {
             label.text = "Cross"
             arrayForCircles[number - 1] = number
             countOfCircles += 1
-           
         } else {
             if countOfCrosses >= 3 {
                 arrayForCrosses[number1Cross! - 1] = 0
@@ -176,8 +173,6 @@ class ViewController: UIViewController {
             arrayForCrosses[number - 1] = number
             countOfCrosses += 1
         }
-        
-        
 //        count += 1
     }
     
