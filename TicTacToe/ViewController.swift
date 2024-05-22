@@ -124,6 +124,14 @@ class ViewController: UIViewController {
             buttonsArray[i].setImage(.none, for: .normal)
             buttonsArray[i].isEnabled = true
         }
+        firstCircle?.backgroundColor = .white
+        firstCross?.backgroundColor = .white
+        firstCircle = .none
+        secondCircle = .none
+        thirdCircle = .none
+        firstCross = .none
+        secondCross = .none
+        thirdCross = .none
         count = 0
         countOfCircles = 0
         countOfCrosses = 0
